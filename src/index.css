@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@media print {
+  body {
+    display: none !important;
+  }
+}
+
+.no-capture {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch optimizations for iOS & Android */
+html, body {
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+  overscroll-behavior-y: none;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* CBT Ultra-Accessible Exam Zoom Scaling Engine */
+.cbt-exam-zoom-container {
+  --cbt-zoom: 1;
+  --cbt-q-size: calc(1.05rem * var(--cbt-zoom, 1));
+  --cbt-opt-size: calc(0.975rem * var(--cbt-zoom, 1));
+  --cbt-table-size: calc(0.9rem * var(--cbt-zoom, 1));
+  --cbt-line-height: calc(1.6 + (var(--cbt-zoom, 1) - 1) * 0.2);
+}
+
+.cbt-exam-zoom-container .cbt-question-text,
+.cbt-exam-zoom-container .cbt-question-text p,
+.cbt-exam-zoom-container .cbt-question-text span,
+.cbt-exam-zoom-container .cbt-question-text div,
+.cbt-exam-zoom-container .cbt-question-text strong,
+.cbt-exam-zoom-container .cbt-question-text em,
+.cbt-exam-zoom-container .cbt-question-text li,
+.cbt-exam-zoom-container .cbt-question-text td,
+.cbt-exam-zoom-container .cbt-question-text th {
+  font-size: var(--cbt-q-size) !important;
+  line-height: var(--cbt-line-height) !important;
+}
+
+.cbt-exam-zoom-container .cbt-question-text .katex,
+.cbt-exam-zoom-container .cbt-question-text .katex-html,
+.cbt-exam-zoom-container .cbt-question-text .katex-block {
+  font-size: calc(var(--cbt-q-size) * 1.12) !important;
+}
+
+.cbt-exam-zoom-container .cbt-option-content,
+.cbt-exam-zoom-container .cbt-option-content p,
+.cbt-exam-zoom-container .cbt-option-content span,
+.cbt-exam-zoom-container .cbt-option-content div {
+  font-size: var(--cbt-opt-size) !important;
+  line-height: var(--cbt-line-height) !important;
+}
+
+.cbt-exam-zoom-container .cbt-category-table,
+.cbt-exam-zoom-container .cbt-category-table td,
+.cbt-exam-zoom-container .cbt-category-table th,
+.cbt-exam-zoom-container .cbt-category-table button,
+.cbt-exam-zoom-container .cbt-category-table span,
+.cbt-exam-zoom-container .cbt-category-table div {
+  font-size: var(--cbt-table-size) !important;
+}
+
+.cbt-exam-zoom-container .cbt-stimulus-img {
+  max-height: calc(340px * var(--cbt-zoom, 1)) !important;
+  width: auto;
+  transition: max-height 0.25s ease-out, transform 0.25s ease-out;
+}
